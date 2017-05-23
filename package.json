@@ -4,10 +4,9 @@
   "description": "PostIt is a simple application that allows friends and colleagues create groups for notifications. This way one person can post notifications to everyone by sending a message once",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha babel server/tests/**/*.spec.js",
+    "test": "istanbul cover _mocha server/tests/**/*.spec.js",
     "coveralls": "npm test -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "start": "babel-watch server.js",
-    "watch": "./node_modules/.bin/babel server/**/*.js"
+    "start": "babel-watch server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,7 @@
     "babel": "^6.23.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
+    "babel-istanbul": "^0.12.2",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
