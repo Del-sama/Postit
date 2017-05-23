@@ -6,7 +6,8 @@
   "scripts": {
     "test": "istanbul cover _mocha babel server/tests/**/*.spec.js",
     "coveralls": "npm test -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "start": "babel-watch server.js"
+    "start": "babel-watch server.js",
+    "watch": "./node_modules/.bin/babel server/**/*.js"
   },
   "repository": {
     "type": "git",
