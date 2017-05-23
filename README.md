@@ -1,2 +1,2 @@
 # Postit
-PostIt is a simple application that allows friends and colleagues create groups for notifications. This way one person can post notifications to everyone by sending a message once
+[![Coverage Status](https://coveralls.io/repos/github/Andela-ddiei/Postit/badge.svg?branch=master)](https://coveralls.io/github/Andela-ddiei/Postit?branch=master)
