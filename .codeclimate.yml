@@ -1,0 +1,16 @@
+engines:
+  eslint:
+    enabled: false
+  csslint:
+    enabled: false
+  duplication:
+    enabled: false
+    config:
+      languages:
+      - javascript
+exclude_paths:
+- node_modules
+ratings:
+   paths:
+   - "src/js/*.js"
+
