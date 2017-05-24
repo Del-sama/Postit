@@ -38,5 +38,9 @@
     "nodemon": "^1.11.0",
     "webpack": "^2.6.0",
     "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "firebase-admin": "^5.0.0"
   }
 }
