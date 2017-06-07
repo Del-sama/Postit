@@ -29,6 +29,33 @@ class UsersController {
     });
   }
 
+  static signin(request, response) {
+    const email = request.body.email;
+    const password = request.body.password;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((user) => {
+
+        user = {
+          uid: user.uid,
+          email: user.email,
+          photoURL: user.photoURL || null,
+          displayName: user.displayName,
+          emailVerified: user.emailVerified,
+          admin: false
+        }
+
+        response.status(201).send({
+          message: 'Signin successful',
+          user
+        })
+      }).catch((error) => {
+
+        const errorMessage = error.message;
+        response.send({message: `Error signing in. ${errorMessage}`})
+    });
+
+  }
 }
 
 module.exports = UsersController;

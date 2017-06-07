@@ -11,5 +11,7 @@ router.use(bodyParser.json());
 router.route('/signup')
   .post(UsersController.createUsers);
 
+router.route('/signin')
+  .post(UsersController.signin);
 
 module.exports = router;
