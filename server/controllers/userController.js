@@ -16,28 +16,13 @@ class UsersController {
 
         user.sendEmailVerification().then(() => {
           response.status(201).send({
-            message: `A verification email has been sent to ${user.email}`
+            message: `Successfully signed up. /n A verification email has been sent to ${user.email}`
           });
         }).catch((error) => {
           response.send({
             message: `An error occured. ${error.message}`
           })
         });
-
-          // user = {
-          //   uid: user.uid,
-          //   displayName: user.displayName,
-          //   email: user.email,
-          //   photoURL: user.photoURL,
-          //   emailVerified: user.emailVerified,
-          //   admin: false
-          // }
-
-          // response.status(201).send({
-          //     user,
-          //     message: 'Sucessfully signed up'
-          //   });
-
       }).catch((error) => {
         const errorMessage = error.message;
         response.status(400).send(`Error signing up ${errorMessage}`);
