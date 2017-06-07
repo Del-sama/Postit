@@ -1,4 +1,4 @@
-module.exports = {
+{
     "root": true,
     "extends": "airbnb-base",
     "env": {
@@ -8,10 +8,10 @@ module.exports = {
         "browser": true
     },
     "plugins": [
-        "react",
-        "jsx-a11y",
-        "import",
-        "jsx"
+      "react",
+      "jsx-a11y",
+      "import",
+      "jsx"
     ],
     "rules": {
         "max-len": [2, 80, 2],
@@ -38,4 +38,5 @@ module.exports = {
             }
         }]
     }
-};
+}
+
