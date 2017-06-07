@@ -6,7 +6,7 @@
   "scripts": {
     "test": "istanbul cover _mocha server/tests/**/*.spec.js",
     "coveralls": "npm test -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "start":"nodemon server.js --exec babel-node --presets es2015,stage-2"
+    "start": "nodemon server.js --exec babel-node --presets es2015,stage-2"
   },
   "repository": {
     "type": "git",
