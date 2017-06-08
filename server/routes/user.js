@@ -14,4 +14,10 @@ router.route('/signup')
 router.route('/signin')
   .post(UsersController.signin);
 
+router.route('/signout')
+  .post(UsersController.signout);
+
+router.route('/:id')
+  .put(UsersController.updateProfile);
+
 module.exports = router;

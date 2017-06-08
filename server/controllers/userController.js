@@ -56,6 +56,42 @@ class UsersController {
     });
 
   }
+  static signout(request, response) {
+    firebase.auth().signOut()
+      .then(() => {
+        response.status(200).send({
+          message: 'You successfully signed out'
+        });
+      }).catch((error) => {
+        response.status(400).send({
+          message: `Sorry, ${error.message}. Please try to sign out again`
+        });
+      });
+  }
+  static updateProfile(request, response) {
+    const user = firebase.auth().currentUser;
+      if (user) {
+        user.updateProfile({
+          displayName: request.body.userName,
+          photoURL: request.body.profilePicture
+          })
+          .then(()=> {
+            const updatedUser = {
+              uid: user.uid,
+              email: user.email,
+              photoURL: user.photoURL || null,
+              displayName: user.displayName
+            }
+            response.status(200)
+              .send({
+                message: 'Profile was successfully updated',
+                updatedUser
+              })
+          })
+      } else {
+        response.send({message:'You are not currently signed in'})
+      }
+  }
 }
 
 module.exports = UsersController;
