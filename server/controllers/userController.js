@@ -91,7 +91,6 @@ class UsersController {
       } else {
         response.send({message:'You are not currently signed in'})
       }
-
   }
 }
 
