@@ -1,0 +1,16 @@
+{
+  "messages": {
+    "0": {
+      "message": "Hi there! How are you?",
+      "date": "Tue, 22nd May, 2017",
+      "author": "Delores Diei",
+      "profilePic": "https://pbs.twimg.com/profile_images/811708577383596032/B1FwgBP1.jpg"
+    },
+    "1": {
+      "message": "I'm good, thank you",
+      "date": "Wed, 23rd May, 2017",
+      "author": "Delores Diei",
+      "profilePic": "https://cdn-images-1.medium.com/max/1200/1*t8lq5TA4X1mOsYOjvvKamQ.jpeg"
+    }
+  }
+}
