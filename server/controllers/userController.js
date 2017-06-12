@@ -1,12 +1,23 @@
 import * as firebase from "firebase";
+import validateEmail from '../utilities/validateEmail'
 
 class UsersController {
   static createUsers(request, response) {
-    const userName = (request.body.userName).toLowerCase();
+    const userName = userName ? (request.body.userName).toLowerCase() : request.body.userName;
     const email = request.body.email;
     const password = request.body.password;
     const profilePicture = request.body.profilePicture || null
 
+    if (!validateEmail(email)) {
+      response.status(400).send({
+        message: 'Please format email and truy again.'
+      })
+    }
+    if(!(email && password && userName)) {
+      response.status(400).send({
+        message: 'Please enter all required details'
+      })
+    }
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((user)=> {
         user.updateProfile({
@@ -33,6 +44,9 @@ class UsersController {
     const email = request.body.email;
     const password = request.body.password;
 
+    if( !(email && password)) {
+      response.send({message: 'Please sign in with your email and password'})
+    }
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
 
@@ -44,13 +58,11 @@ class UsersController {
           emailVerified: user.emailVerified,
           admin: false
         }
-
-        response.status(201).send({
-          message: 'Signin successful',
-          user
+          response.status(201).send({
+            message: 'Signin successful',
+            user
         })
       }).catch((error) => {
-
         const errorMessage = error.message;
         response.send({message: `Error signing in. ${errorMessage}`})
     });
@@ -69,6 +81,7 @@ class UsersController {
       });
   }
   static updateProfile(request, response) {
+    console.log("request====>", request.params)
     const user = firebase.auth().currentUser;
       if (user) {
         user.updateProfile({
@@ -91,6 +104,20 @@ class UsersController {
       } else {
         response.send({message:'You are not currently signed in'})
       }
+  }
+  static resetPassword(request, response) {
+    const auth = firebase.auth();
+    const email = request.body.email;
+
+    auth.sendPasswordResetEmail(email).then(() => {
+      response.send({
+        message: `A password reset email has been sent to ${email}`
+      })
+    }, (error) => {
+        response.send({
+          message: `An error occured ${error.message}`
+      })
+    });
   }
 }
 
