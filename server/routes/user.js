@@ -20,4 +20,7 @@ router.route('/signout')
 router.route('/:id')
   .put(UsersController.updateProfile);
 
+router.route('/password/reset')
+  .post(UsersController.resetPassword);
+
 module.exports = router;
