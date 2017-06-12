@@ -1,5 +1,6 @@
 import * as firebase from "firebase";
-import validateEmail from '../utilities/validateEmail'
+import validateEmail from '../utilities/validateEmail';
+import updateUser from '../utilities/helper';
 
 class UsersController {
   static createUsers(request, response) {
@@ -24,6 +25,14 @@ class UsersController {
           displayName: userName,
           photoURL: profilePicture
         })
+
+        const database = firebase.database();
+        database.ref(`users/${user.uid}`).set({
+          userName: userName,
+          email: email,
+          profilePicture: profilePicture,
+          groups : ['General']
+        });
 
         user.sendEmailVerification().then(() => {
           response.status(201).send({
@@ -81,8 +90,7 @@ class UsersController {
       });
   }
   static updateProfile(request, response) {
-    console.log("request====>", request.params)
-    const user = firebase.auth().currentUser;
+    let user = firebase.auth().currentUser;
       if (user) {
         user.updateProfile({
           displayName: request.body.userName,
@@ -100,6 +108,13 @@ class UsersController {
                 message: 'Profile was successfully updated',
                 updatedUser
               })
+
+            const userName = request.body.userName;
+            const profilePicture = request.body.profilePicture || user.photoURL;
+            const email = user.email;
+            const groups = user.groups;
+
+            updateUser(user.uid, userName, profilePicture, email, groups);
           })
       } else {
         response.send({message:'You are not currently signed in'})
