@@ -114,7 +114,7 @@ class UsersController {
             const email = user.email;
             const groups = user.groups;
 
-            updateUser(user.uid, userName, profilePicture, email, groups);
+            updateUser(user.uid, userName, profilePicture, email);
           })
       } else {
         response.send({message:'You are not currently signed in'})
