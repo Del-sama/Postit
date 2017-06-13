@@ -1,6 +1,5 @@
 import * as firebase from "firebase";
 import validateEmail from '../utilities/validateEmail';
-import updateUser from '../utilities/helper';
 
 class UsersController {
   static createUsers(request, response) {
@@ -109,12 +108,12 @@ class UsersController {
                 updatedUser
               })
 
-            const userName = request.body.userName;
-            const profilePicture = request.body.profilePicture || user.photoURL;
-            const email = user.email;
-            const groups = user.groups;
-
-            updateUser(user.uid, userName, profilePicture, email);
+            const userId = user.uid
+            const db = firebase.database();
+            db.ref(`users/${userId}`).update({
+              userName: request.body.userName || user.userName,
+              profilePicture: request.body.profilePicture || user.photoURL
+             });
           })
       } else {
         response.send({message:'You are not currently signed in'})
