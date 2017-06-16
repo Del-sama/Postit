@@ -21,7 +21,7 @@ const config = {
 firebase.initializeApp(config);
 
 app.use('/users', usersRoute);
-app.use('/', messageRoute);
+app.use('/groups', messageRoute);
 app.use('/groups', groupsRoute);
 
 app.use('/*', (req, res) => {
