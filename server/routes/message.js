@@ -8,5 +8,11 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-router.route('groups/:id/message')
+router.route('/:id/message')
   .post(messageController.createMessage);
+
+router.route('/:id/message/:id')
+  .put(messageController.updateMessage)
+  .delete(messageController.deleteMessage)
+
+module.exports = router;
