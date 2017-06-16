@@ -5,10 +5,8 @@ class messageController {
     const newMessage = request.body.message;
     const priority = request.body.priority;
     const groupId = request.params.id
-
     const database = firebase.database();
     const user = firebase.auth().currentUser;
-
 
     if(!user) {
       response.send({
@@ -50,7 +48,6 @@ class messageController {
       })
     }
     let author;
-
     database.ref(`messages/${messageId}`)
       .once('value')
       .then((snapshot) => {
@@ -82,9 +79,7 @@ class messageController {
         message: 'You are not currently signed in'
       });
     }
-
     let author;
-
     database.ref(`messages/${messageId}`)
       .once('value')
       .then((snapshot) => {
