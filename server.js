@@ -3,6 +3,7 @@ require('dotenv').config()
 import express from 'express';
 import * as firebase from "firebase";
 import usersRoute from './server/routes/user';
+import messageRoute from './server/routes/message'
 import groupsRoute from './server/routes/group'
 
 const port = process.env.PORT;
@@ -20,6 +21,7 @@ const config = {
 firebase.initializeApp(config);
 
 app.use('/users', usersRoute);
+app.use('/groups', messageRoute);
 app.use('/groups', groupsRoute);
 
 app.use('/*', (req, res) => {
