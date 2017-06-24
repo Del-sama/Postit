@@ -13,6 +13,6 @@ router.route('/:id/message')
 
 router.route('/:id/message/:id')
   .put(messageController.updateMessage)
-  .delete(messageController.deleteMessage)
+  .delete(messageController.deleteMessage);
 
 module.exports = router;
