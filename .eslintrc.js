@@ -1,4 +1,4 @@
-{
+module.exports = {
     "root": true,
     "extends": "airbnb-base",
     "env": {
@@ -25,10 +25,10 @@
         "curly": [2, "multi-line"],
         "no-shadow": [2, { "allow": ["req", "res", "err"] }],
         "valid-jsdoc": [2, {
-            "requireReturn": true,
-            "requireReturnType": true,
+            "requireReturn": false,
+            "requireReturnType": false,
             "requireParamDescription": false,
-            "requireReturnDescription": true
+            "requireReturnDescription": false
         }],
         "require-jsdoc": [2, {
             "require": {
