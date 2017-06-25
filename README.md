@@ -1,6 +1,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Andela-ddiei/Postit/badge.svg?branch=master)](https://coveralls.io/github/Andela-ddiei/Postit?branch=master)
 [![CircleCI](https://circleci.com/gh/Andela-ddiei/Postit/tree/develop.svg?style=svg)](https://circleci.com/gh/Andela-ddiei/Postit/tree/develop)
 # Postit
+<<<<<<< HEAD
 PostIt is a simple application that allows friends and colleagues create groups for notifications. This way one person can post notifications to everyone by sending a message once.
 ## Development
 This application was developed using [NodeJs](https://nodejs.org/) with express for routing and [Firebase](https://firebase.google.com/) for data persistence.
@@ -51,3 +52,7 @@ N/A
 | PUT           | /groups/:id/message/:id | Edit a message |
 | DELETE        | /groups/:id/message/:id | Delete a message|
 
+=======
+[![Coverage Status](https://coveralls.io/repos/github/Andela-ddiei/Postit/badge.svg?branch=master)](https://coveralls.io/github/Andela-ddiei/Postit?branch=master)
+[![CircleCI](https://circleci.com/gh/Andela-ddiei/Postit/tree/develop.svg?style=svg)](https://circleci.com/gh/Andela-ddiei/Postit/tree/develop)
+>>>>>>> 9080470913b8116c7c371bf2ef7059aaa3dca6f0
