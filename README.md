@@ -14,6 +14,25 @@ This application was developed using [NodeJs](https://nodejs.org/) with express 
 * Initialize `Firebase`
 ## Testing
 N/A
+## Usage
+* Start the application `$ npm start`
+* Use `Postman` to consume available endpoints
+* A user can:
+  * Create an account
+  * Sign in
+  * Sign out
+  * Update profile
+  * Reset password
+  * Create a group
+  * Get a particular group
+  * Delete a group
+  * Update a group
+  * Get all groups
+  * Join a group
+  * create a message
+  * Edit a message
+  * Delete a message
+
 ## Endpoints
 | Request type      | Endpoint          | Action |
 | ------------- |:-------------:| -----:|
